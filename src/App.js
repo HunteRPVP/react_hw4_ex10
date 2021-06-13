@@ -85,7 +85,7 @@ class App extends React.Component {
       });
       if (count === 3) {
         alert("Игрок " + player + " выиграл!!!");
-        window.location.reload();
+        this.dropStates();
       } else {
         count = 0;
       }
@@ -100,7 +100,7 @@ class App extends React.Component {
       });
       if (count === 3) {
         alert("Игрок " + player + " выиграл!!!");
-        window.location.reload();
+        this.dropStates();
       } else {
         count = 0;
       }
@@ -115,7 +115,7 @@ class App extends React.Component {
       });
       if (count === 3) {
         alert("Игрок " + player + " выиграл!!!");
-        window.location.reload();
+        this.dropStates();
       } else {
         count = 0;
       }
@@ -136,9 +136,17 @@ class App extends React.Component {
     this.checkWin(this.state.coorCircle, 2);
     if (this.state.coorCross.length + this.state.coorCircle.length === 9) {
       alert("Ничья");
-      window.location.reload();
+      this.dropStates();
     }
   };
+
+  dropStates() {
+    this.setState({
+      shape: "cross",
+      coorCross: [],
+      coorCircle: [],
+    });
+  }
 
   render() {
     return (
